@@ -4,13 +4,13 @@ import Access from "./pages/Access"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 
-// TEMP: simuliamo login
-const isAuthenticated = false
+const isAuthenticated = localStorage.getItem("auth") === "true"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+
         {/* Public */}
         <Route path="/access" element={<Access />} />
         <Route path="/login" element={<Login />} />
@@ -19,10 +19,9 @@ function App() {
         {/* Protected */}
         <Route
           path="/"
-          element={
-            isAuthenticated ? <Home /> : <Navigate to="/access" />
-          }
+          element={isAuthenticated ? <Home /> : <Navigate to="/access" />}
         />
+
       </Routes>
     </BrowserRouter>
   )

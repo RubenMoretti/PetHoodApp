@@ -1,31 +1,50 @@
-const Login = () => {
+import { Link } from "react-router-dom"
+
+function Login() {
   return (
-    <main className="min-h-screen bg-white px-6 py-10">
-      <h2 className="text-2xl font-bold mb-6">
-        Accedi
-      </h2>
+    <div className="min-h-screen flex items-center justify-center bg-white px-4">
+      <div className="w-full max-w-md">
 
-      <form className="space-y-4">
-        <input
-          type="email"
-          placeholder="Email"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3"
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full border border-gray-300 rounded-xl px-4 py-3"
-        />
-
-        <button
-          type="submit"
-          className="w-full bg-black text-white py-3 rounded-xl font-medium"
-        >
+        <h1 className="text-3xl font-bold text-center mb-8">
           Accedi
-        </button>
-      </form>
-    </main>
+        </h1>
+
+        <form className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400"
+          />
+
+          <button
+            type="submit"
+            className="w-full bg-orange-400 text-white py-3 rounded-xl font-semibold hover:bg-orange-500 transition"
+          >
+            Accedi
+          </button>
+          <div className="flex items-center gap-2">
+            <input type="checkbox" className="accent-orange-400" />
+            <span className="text-sm">Ricordami</span>
+          </div>
+        </form>
+
+        <p className="text-center text-sm mt-6">
+          Non hai un account?{" "}
+          <Link
+            to="/register"
+            className="text-orange-400 font-semibold hover:underline"
+          >
+            Registrati
+          </Link>
+        </p>
+      </div>
+    </div>
   )
 }
 
